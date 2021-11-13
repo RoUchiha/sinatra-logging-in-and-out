@@ -6,7 +6,14 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
+    <% if Helpers.is_logged_in?(session) == true %>
+      <h1>Welcome <%= Helpers.current_user(session).username %></h1><br>
+      <h3>Your Balance: <%= Helpers.current_user(session).balance %>.0</h3>
+    <% end %>
+    <form method="POST" action="/logout">
+    <input id="Log Out" name="Log Out" type="submit">
+    </form>
+  </body>
 
   </body>
 </html>
